@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useUpdater } from "@/hooks/useUpdater";
 
 function App() {
+  useUpdater();
   const [count, setCount] = useState(0);
 
   return (
