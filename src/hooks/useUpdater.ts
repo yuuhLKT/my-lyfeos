@@ -1,44 +1,65 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { check } from "@tauri-apps/plugin-updater";
 import { relaunch } from "@tauri-apps/plugin-process";
+import type { UpdaterState } from "@/types/updater";
 
 export function useUpdater() {
+  const [state, setState] = useState<UpdaterState>({ type: "checking" });
+
   useEffect(() => {
     let cancelled = false;
 
-    async function runUpdateCheck() {
+    async function run() {
       try {
         const update = await check();
-        if (!update || cancelled) return;
+        if (cancelled) return;
 
-        console.log(`[Updater] New version available: ${update.version}`);
+        if (!update) {
+          setState({ type: "no-update" });
+          return;
+        }
+
+        let contentLength = 0;
+        let downloaded = 0;
 
         await update.downloadAndInstall((event) => {
+          if (cancelled) return;
           switch (event.event) {
             case "Started":
-              console.log(
-                `[Updater] Download started (${event.data.contentLength} bytes)`
-              );
+              contentLength = event.data.contentLength ?? 0;
               break;
             case "Progress":
-              console.log(`[Updater] Downloaded ${event.data.chunkLength} bytes`);
+              downloaded += event.data.chunkLength;
+              setState({
+                type: "downloading",
+                progress: downloaded,
+                contentLength,
+              });
               break;
             case "Finished":
-              console.log("[Updater] Download finished");
+              setState({ type: "installing" });
               break;
           }
         });
 
-        console.log("[Updater] Update installed, relaunching app...");
+        if (cancelled) return;
+        setState({ type: "relaunching" });
         await relaunch();
       } catch (err) {
-        console.error("[Updater] Error checking for updates:", err);
+        if (!cancelled) {
+          setState({
+            type: "error",
+            message: err instanceof Error ? err.message : String(err),
+          });
+        }
       }
     }
 
-    runUpdateCheck();
+    run();
     return () => {
       cancelled = true;
     };
   }, []);
+
+  return state;
 }
