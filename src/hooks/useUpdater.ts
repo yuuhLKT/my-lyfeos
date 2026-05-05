@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { check } from "@tauri-apps/plugin-updater";
 import { relaunch } from "@tauri-apps/plugin-process";
-import type { UpdaterState } from "@/types/updater";
+import type { UpdaterState } from "@/schemas/updater";
 
 export function useUpdater() {
   const [state, setState] = useState<UpdaterState>({ type: "checking" });
