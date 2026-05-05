@@ -5,24 +5,42 @@ import {
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {
     Sidebar,
     SidebarContent,
     SidebarFooter,
     SidebarGroup,
-    SidebarGroupLabel,
     SidebarHeader,
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Briefcase, ChevronDown, Home, LogOut, Settings, User } from "lucide-react"
-import { useState } from "react"
+} from "@/components/ui/sidebar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+    Briefcase,
+    ChevronDown,
+} from "lucide-react";
+import { useState } from "react";
+import { mainNavigation, footerNavigation } from "@/navigation";
+import { useAppStore } from "@/stores/appStore";
+import type { NavItem } from "@/navigation";
 
 export function AppSidebar() {
-    const [workspace, setWorkspace] = useState("Personal")
+    const [workspace, setWorkspace] = useState("Personal");
+    const activeScreen = useAppStore((state) => state.activeScreen);
+    const setActiveScreen = useAppStore((state) => state.setActiveScreen);
+
+    const handleNavClick = (item: NavItem) => {
+        if (item.action === "logout") {
+            // TODO: implement logout
+            console.log("Logout clicked");
+            return;
+        }
+        if (item.component) {
+            setActiveScreen(item.id);
+        }
+    };
 
     return (
         <Sidebar collapsible="icon">
@@ -49,17 +67,20 @@ export function AppSidebar() {
                                     <ChevronDown className="ml-auto size-4" />
                                 </SidebarMenuButton>
                             </DropdownMenuTrigger>
-                            <DropdownMenuContent
-                                className="w-56"
-                                align="start"
-                            >
-                                <DropdownMenuLabel>Workspaces</DropdownMenuLabel>
+                            <DropdownMenuContent className="w-56" align="start">
+                                <DropdownMenuLabel>
+                                    Workspaces
+                                </DropdownMenuLabel>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem onClick={() => setWorkspace("Personal")}>
+                                <DropdownMenuItem
+                                    onClick={() => setWorkspace("Personal")}
+                                >
                                     <Briefcase className="mr-2 size-4" />
                                     <span>Personal</span>
                                 </DropdownMenuItem>
-                                <DropdownMenuItem onClick={() => setWorkspace("Work")}>
+                                <DropdownMenuItem
+                                    onClick={() => setWorkspace("Work")}
+                                >
                                     <Briefcase className="mr-2 size-4" />
                                     <span>Work</span>
                                 </DropdownMenuItem>
@@ -71,16 +92,23 @@ export function AppSidebar() {
 
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>Platform</SidebarGroupLabel>
                     <SidebarMenu>
-                        <SidebarMenuItem>
-                            <SidebarMenuButton asChild isActive>
-                                <a href="#">
-                                    <Home className="size-4" />
-                                    <span>Home</span>
-                                </a>
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
+                        {mainNavigation.map((item) => {
+                            const Icon = item.icon;
+                            const isActive = activeScreen === item.id;
+
+                            return (
+                                <SidebarMenuItem key={item.id}>
+                                    <SidebarMenuButton
+                                        isActive={isActive}
+                                        onClick={() => handleNavClick(item)}
+                                    >
+                                        <Icon className="size-4" />
+                                        <span>{item.label}</span>
+                                    </SidebarMenuButton>
+                                </SidebarMenuItem>
+                            );
+                        })}
                     </SidebarMenu>
                 </SidebarGroup>
             </SidebarContent>
@@ -115,26 +143,30 @@ export function AppSidebar() {
                                 align="start"
                                 side="top"
                             >
-                                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                <DropdownMenuLabel>
+                                    My Account
+                                </DropdownMenuLabel>
                                 <DropdownMenuSeparator />
-                                <DropdownMenuItem>
-                                    <User className="mr-2 size-4" />
-                                    <span>Profile</span>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    <Settings className="mr-2 size-4" />
-                                    <span>Settings</span>
-                                </DropdownMenuItem>
-                                <DropdownMenuSeparator />
-                                <DropdownMenuItem>
-                                    <LogOut className="mr-2 size-4" />
-                                    <span>Log out</span>
-                                </DropdownMenuItem>
+                                {footerNavigation.map((item) => {
+                                    const Icon = item.icon;
+                                    const isActive = activeScreen === item.id;
+
+                                    return (
+                                        <DropdownMenuItem
+                                            key={item.id}
+                                            onClick={() => handleNavClick(item)}
+                                            className={isActive ? "bg-accent" : ""}
+                                        >
+                                            <Icon className="mr-2 size-4" />
+                                            <span>{item.label}</span>
+                                        </DropdownMenuItem>
+                                    );
+                                })}
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </SidebarMenuItem>
                 </SidebarMenu>
             </SidebarFooter>
         </Sidebar>
-    )
+    );
 }
