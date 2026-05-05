@@ -1,24 +1,20 @@
-import { HomeScreen } from "@/components/screens/HomeScree";
 import { UpdaterScreen } from "@/components/screens/UpdaterScreen";
 import { useUpdater } from "@/hooks/useUpdater";
 import Layout from "@/layout";
-import { useEffect, useState } from "react";
+import { useAppStore } from "@/stores/appStore";
+import { allNavItems } from "@/navigation";
+import { useState } from "react";
 
 function App() {
     const updaterState = useUpdater();
     const [showHome, setShowHome] = useState(false);
+    const isDevMode = import.meta.env.VITE_MODE === "dev";
+    const activeScreen = useAppStore((state) => state.activeScreen);
 
-    useEffect(() => {
-        if (
-            updaterState.type === "no-update" ||
-            updaterState.type === "error"
-        ) {
-            const timer = setTimeout(() => setShowHome(true), 2000);
-            return () => clearTimeout(timer);
-        }
-    }, [updaterState.type]);
+    const activeItem = allNavItems.find((item) => item.id === activeScreen);
+    const ActiveComponent = activeItem?.component ?? (() => null);
 
-    if (!showHome) {
+    if (!showHome && !isDevMode) {
         return (
             <UpdaterScreen
                 state={updaterState}
@@ -29,7 +25,7 @@ function App() {
 
     return (
         <Layout>
-            <HomeScreen />
+            <ActiveComponent />
         </Layout>
     );
 }
