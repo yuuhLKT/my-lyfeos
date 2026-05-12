@@ -1,0 +1,157 @@
+{
+  "common": {
+    "loading": "Carregando configurações...",
+    "error": "Erro ao carregar configurações"
+  },
+  "settings": {
+    "title": "Configurações",
+    "description": "Gerencie suas preferências e configurações do workspace.",
+    "appearance": {
+      "title": "Aparência",
+      "description": "Personalize como o LyfeOS parece no seu dispositivo.",
+      "theme": "Tema",
+      "themePlaceholder": "Selecione o tema",
+      "light": "Claro",
+      "dark": "Escuro",
+      "system": "Sistema",
+      "themeHint": "Selecione um tema que combine com sua preferência. Sistema seguirá a configuração do seu SO."
+    },
+    "language": {
+      "title": "Idioma",
+      "description": "Escolha seu idioma preferido.",
+      "label": "Idioma",
+      "placeholder": "Selecione o idioma",
+      "en": "Inglês",
+      "pt-BR": "Português (Brasil)"
+    },
+    "workspace": {
+      "title": "Workspace",
+      "description": "Sua configuração atual de workspace.",
+      "defaultWorkspace": "Workspace Padrão",
+      "workspacePlaceholder": "Selecione o workspace",
+      "personal": "Pessoal",
+      "work": "Trabalho"
+    }
+  },
+  "finance": {
+    "title": "Finanças",
+    "description": "Gerencie seus dados financeiros e acompanhe suas contas.",
+    "belvoIntegration": {
+      "title": "Integração Belvo",
+      "description": "Conecte suas contas bancárias de forma segura através do Belvo para sincronizar saldos e transações automaticamente.",
+      "statusLabel": "Status da Integração",
+      "statusValue": "Não conectado — em breve"
+    },
+    "features": {
+      "accounts": "Contas",
+      "accountsDesc": "Visualize todas as suas contas bancárias conectadas em um só lugar.",
+      "transactions": "Transações",
+      "transactionsDesc": "Acompanhe e categorize seus gastos automaticamente.",
+      "analytics": "Análises",
+      "analyticsDesc": "Visualize receitas, despesas e tendências financeiras.",
+      "budgets": "Orçamentos",
+      "budgetsDesc": "Defina orçamentos mensais e monitore seu progresso."
+    }
+  },
+  "calendar": {
+    "title": "Calendário",
+    "description": "Gerencie seus eventos e lembretes.",
+    "sheetDescription": "Visualize, adicione ou edite eventos deste dia.",
+    "eventsForDay": "Eventos deste dia",
+    "noEvents": "Nenhum evento para este dia.",
+    "weekdays": {
+      "sun": "Dom",
+      "mon": "Seg",
+      "tue": "Ter",
+      "wed": "Qua",
+      "thu": "Qui",
+      "fri": "Sex",
+      "sat": "Sáb"
+    },
+    "types": {
+      "event": "Evento",
+      "reminder": "Lembrete"
+    },
+    "form": {
+      "title": "Título",
+      "titlePlaceholder": "Digite o título...",
+      "description": "Descrição",
+      "descriptionPlaceholder": "Digite a descrição (opcional)...",
+      "tag": "Tag",
+      "newTag": "Nova tag",
+      "selectTag": "Selecionar tag",
+      "tagNamePlaceholder": "Nome da tag...",
+      "createTag": "Criar tag",
+      "noTags": "Nenhuma tag ainda. Crie uma!",
+      "clearTag": "Limpar",
+      "add": "Adicionar",
+      "save": "Salvar",
+      "cancel": "Cancelar"
+    },
+    "tabs": {
+      "events": "Eventos",
+      "tasks": "Tarefas"
+    },
+    "tasksForDay": "Tarefas deste dia",
+    "noTasks": "Nenhuma tarefa para este dia."
+  },
+  "tasks": {
+    "title": "Tarefas",
+    "description": "Gerencie suas tarefas com visualizações Kanban e Lista.",
+    "kanban": "Kanban",
+    "list": "Lista",
+    "newTask": "Nova tarefa",
+    "editTask": "Editar tarefa",
+    "search": "Buscar tarefas...",
+    "clearFilters": "Limpar filtros",
+    "filter": {
+      "status": "Status",
+      "priority": "Prioridade",
+      "tag": "Tag",
+      "allTags": "Todas as tags",
+      "from": "De",
+      "to": "Até"
+    },
+    "statuses": {
+      "all": "Todas",
+      "todo": "A fazer",
+      "pending": "Pendente",
+      "in_progress": "Em andamento",
+      "done": "Concluída"
+    },
+    "priorities": {
+      "all": "Todas",
+      "low": "Baixa",
+      "medium": "Média",
+      "high": "Alta"
+    },
+    "detail": {
+      "description": "Detalhes da tarefa",
+      "created": "Criada"
+    },
+    "form": {
+      "title": "Título",
+      "titlePlaceholder": "Digite o título...",
+      "description": "Descrição",
+      "descriptionPlaceholder": "Digite a descrição (opcional)...",
+      "status": "Status",
+      "priority": "Prioridade",
+      "tag": "Tag",
+      "newTag": "Nova tag",
+      "selectTag": "Selecionar tag",
+      "tagNamePlaceholder": "Nome da tag...",
+      "createTag": "Criar tag",
+      "noTags": "Nenhuma tag ainda. Crie uma!",
+      "clearTag": "Limpar",
+      "startDate": "Data de início",
+      "dueDate": "Data de vencimento",
+      "linkedEvent": "Evento vinculado",
+      "noEvent": "Nenhum",
+      "add": "Adicionar",
+      "save": "Salvar",
+      "cancel": "Cancelar",
+      "edit": "Editar",
+      "delete": "Excluir"
+    }
+  }
+}

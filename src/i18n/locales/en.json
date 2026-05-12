@@ -1,0 +1,157 @@
+{
+  "common": {
+    "loading": "Loading settings...",
+    "error": "Failed to load settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Manage your preferences and workspace settings.",
+    "appearance": {
+      "title": "Appearance",
+      "description": "Customize how LyfeOS looks on your device.",
+      "theme": "Theme",
+      "themePlaceholder": "Select theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System",
+      "themeHint": "Select a theme that matches your preference. System will follow your OS setting."
+    },
+    "language": {
+      "title": "Language",
+      "description": "Choose your preferred language.",
+      "label": "Language",
+      "placeholder": "Select language",
+      "en": "English",
+      "pt-BR": "Português (Brasil)"
+    },
+    "workspace": {
+      "title": "Workspace",
+      "description": "Your current workspace configuration.",
+      "defaultWorkspace": "Default Workspace",
+      "workspacePlaceholder": "Select workspace",
+      "personal": "Personal",
+      "work": "Work"
+    }
+  },
+  "finance": {
+    "title": "Finance",
+    "description": "Manage your financial data and track your accounts.",
+    "belvoIntegration": {
+      "title": "Belvo Integration",
+      "description": "Connect your bank accounts securely through Belvo to automatically sync balances and transactions.",
+      "statusLabel": "Integration Status",
+      "statusValue": "Not connected — coming soon"
+    },
+    "features": {
+      "accounts": "Accounts",
+      "accountsDesc": "View all your connected bank accounts in one place.",
+      "transactions": "Transactions",
+      "transactionsDesc": "Track and categorize your spending automatically.",
+      "analytics": "Analytics",
+      "analyticsDesc": "Visualize income, expenses, and financial trends.",
+      "budgets": "Budgets",
+      "budgetsDesc": "Set monthly budgets and monitor your progress."
+    }
+  },
+  "calendar": {
+    "title": "Calendar",
+    "description": "Manage your events and reminders.",
+    "sheetDescription": "View, add, or edit events for this day.",
+    "eventsForDay": "Events for this day",
+    "noEvents": "No events for this day.",
+    "weekdays": {
+      "sun": "Sun",
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat"
+    },
+    "types": {
+      "event": "Event",
+      "reminder": "Reminder"
+    },
+    "form": {
+      "title": "Title",
+      "titlePlaceholder": "Enter title...",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter description (optional)...",
+      "tag": "Tag",
+      "newTag": "New tag",
+      "selectTag": "Select tag",
+      "tagNamePlaceholder": "Tag name...",
+      "createTag": "Create tag",
+      "noTags": "No tags yet. Create one!",
+      "clearTag": "Clear",
+      "add": "Add",
+      "save": "Save",
+      "cancel": "Cancel"
+    },
+    "tabs": {
+      "events": "Events",
+      "tasks": "Tasks"
+    },
+    "tasksForDay": "Tasks for this day",
+    "noTasks": "No tasks for this day."
+  },
+  "tasks": {
+    "title": "Tasks",
+    "description": "Manage your tasks with Kanban and List views.",
+    "kanban": "Kanban",
+    "list": "List",
+    "newTask": "New task",
+    "editTask": "Edit task",
+    "search": "Search tasks...",
+    "clearFilters": "Clear filters",
+    "filter": {
+      "status": "Status",
+      "priority": "Priority",
+      "tag": "Tag",
+      "allTags": "All tags",
+      "from": "From",
+      "to": "To"
+    },
+    "statuses": {
+      "all": "All",
+      "todo": "To Do",
+      "pending": "Pending",
+      "in_progress": "In Progress",
+      "done": "Done"
+    },
+    "priorities": {
+      "all": "All",
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "detail": {
+      "description": "Task details",
+      "created": "Created"
+    },
+    "form": {
+      "title": "Title",
+      "titlePlaceholder": "Enter title...",
+      "description": "Description",
+      "descriptionPlaceholder": "Enter description (optional)...",
+      "status": "Status",
+      "priority": "Priority",
+      "tag": "Tag",
+      "newTag": "New tag",
+      "selectTag": "Select tag",
+      "tagNamePlaceholder": "Tag name...",
+      "createTag": "Create tag",
+      "noTags": "No tags yet. Create one!",
+      "clearTag": "Clear",
+      "startDate": "Start date",
+      "dueDate": "Due date",
+      "linkedEvent": "Linked event",
+      "noEvent": "None",
+      "add": "Add",
+      "save": "Save",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete"
+    }
+  }
+}
