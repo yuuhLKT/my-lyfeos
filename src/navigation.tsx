@@ -1,8 +1,11 @@
 import type { LucideIcon } from "lucide-react";
-import { Home, Settings, User, LogOut } from "lucide-react";
+import { Home, Settings, User, LogOut, Landmark, Calendar, ListChecks } from "lucide-react";
 import { HomeScreen } from "@/components/screens/HomeScreen";
 import { SettingsScreen } from "@/components/screens/SettingsScreen";
 import { ProfileScreen } from "@/components/screens/ProfileScreen";
+import { FinanceScreen } from "@/components/screens/FinanceScreen";
+import { CalendarScreen } from "@/components/screens/CalendarScreen";
+import { TasksScreen } from "@/components/screens/TasksScreen";
 
 export type NavAction = "navigate" | "logout";
 
@@ -26,6 +29,24 @@ export const mainNavigation: NavItem[] = [
     label: "Home",
     icon: Home,
     component: HomeScreen,
+  },
+  {
+    id: "finance",
+    label: "Finance",
+    icon: Landmark,
+    component: FinanceScreen,
+  },
+  {
+    id: "calendar",
+    label: "Calendar",
+    icon: Calendar,
+    component: CalendarScreen,
+  },
+  {
+    id: "tasks",
+    label: "Tasks",
+    icon: ListChecks,
+    component: TasksScreen,
   },
 ];
 

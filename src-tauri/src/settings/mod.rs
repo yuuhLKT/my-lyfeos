@@ -7,6 +7,8 @@ use tauri::{AppHandle, Manager};
 pub struct AppSettings {
     pub theme: String,
     pub default_workspace: String,
+    #[serde(default)]
+    pub language: String,
 }
 
 impl Default for AppSettings {
@@ -14,6 +16,7 @@ impl Default for AppSettings {
         Self {
             theme: "dark".to_string(),
             default_workspace: String::new(),
+            language: "en".to_string(),
         }
     }
 }
